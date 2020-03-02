@@ -87,7 +87,7 @@ pc.script.create( "ui", function (context) {
                     clickable.onclick = (function() {
                         var index = i;
                         return function() { 
-                            var car = context.root.findByName('Car');
+                            var car = context.root.findByName('CarBody');
                             car.script.materials.changeColor(colors[index].color);
                         };
                     })();
