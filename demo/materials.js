@@ -8,11 +8,11 @@ Materials.prototype.changeColor = function(color){
             var material = materials[i];
 
             console.log("material.name==" + material.name);
-            if (material.name === "Car_Body_A") {
-                material.ambient = color;
+            if (material.name === "Car_Body_Color") {
                 material.diffuse = color;
                 material.update();
             }
+            
         }
     }
 };
