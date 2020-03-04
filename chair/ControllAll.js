@@ -38,7 +38,7 @@ ControllAll.attributes.add('SkyBox_2',{type:'asset',assetType:'cubemap'});
 ControllAll.attributes.add('SkyBox_3',{type:'asset',assetType:'cubemap'});
 
 ////////////////////////////////////////////////////////////////////////////////////
-var CurrentModelNum=1;//UIindex:当前模型按钮index
+var CurrentWheelNum=1;//UIindex:当前模型按钮index
 var ArrayModel;
 
 var Controll_nums=1;//UIindex:旋转按钮Index
@@ -158,11 +158,11 @@ ControllAll.prototype.update = function(dt) {
         
         /////////////////////////////////////////////////////////////////////////////////////////////////
         //根据模型不同，记录当前的rotation不同
-        if(CurrentModelNum===1){
+        if(CurrentWheelNum===1){
             A_CurrentUpRotation=CurrentUpEt_rotation;//记录当前A模型UpRotation
             A_CurrentDownRotation=CurrentDownEt_rotation;//记录当前A模型DownRotation
         }
-        if(CurrentModelNum===2){
+        if(CurrentWheelNum===2){
             B_CurrentUpRotation=CurrentUpEt_rotation;//记录当前B模型UpRotation
             B_CurrentDownRotation=CurrentDownEt_rotation;//记录当前B模型DownRotation
         }
@@ -185,11 +185,11 @@ ControllAll.prototype.UseBeginRotation=function(){
 };
 
 ControllAll.prototype.UseCurrentRotation=function(){
-    if(CurrentModelNum===1){
+    if(CurrentWheelNum===1){
         CurrentUpModel.setLocalEulerAngles(A_CurrentUpRotation);
         CurrentDownModel.setLocalEulerAngles(A_CurrentDownRotation);
     }
-    if(CurrentModelNum===2){
+    if(CurrentWheelNum===2){
         CurrentUpModel.setLocalEulerAngles(B_CurrentUpRotation);
         CurrentDownModel.setLocalEulerAngles(B_CurrentDownRotation);
     }
@@ -198,7 +198,7 @@ ControllAll.prototype.UseCurrentRotation=function(){
 //模型切换信号，拿到对应的模型
 ControllAll.prototype.ChangeModel=function(m_ModelNum){
     //切换模型
-    CurrentModelNum=m_ModelNum;
+    CurrentWheelNum=m_ModelNum;
     console.log(m_ModelNum);
     for(i=0;i<ArrayModel.length;i++){
         if(i===m_ModelNum-1){
@@ -223,11 +223,11 @@ ControllAll.prototype.ChangeModel=function(m_ModelNum){
 ControllAll.prototype.ChangeMaterial=function(nums){
     console.log("替换材质啦！！！！！！！！！！！！！！！！！！！！！！！！！");
     CurrentMaterialNum=nums;
-    if(CurrentModelNum===1){
+    if(CurrentWheelNum===1){
         CurrentUpModel.model.meshInstances[1].material=A_UpMaterialArray[nums-1].resource;
         CurrentDownModel.model.meshInstances[1].material=A_DownMaterialArray[nums-1].resource;
     }
-    else if(CurrentModelNum===2){
+    else if(CurrentWheelNum===2){
         CurrentUpModel.model.meshInstances[1].material=B_UpMaterialArray[nums-1].resource;
         CurrentDownModel.model.meshInstances[1].material=B_DownMaterialArray[nums-1].resource;
     }
