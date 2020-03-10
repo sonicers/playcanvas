@@ -27,6 +27,9 @@ ControllAll.prototype.initialize = function() {
     //收到模型切换信号
     this.app.on('BeginChangeWheel',this.ChangeWheel,this);
 
+    //收到开门信号
+    this.app.on('BeginOpenDoor',this.OpenDoor,this);
+
     //收到替换Skybox信号
     this.app.on('BeginChangeHDR',this.ChangeSkybox,this);
 
@@ -45,6 +48,11 @@ ControllAll.prototype.ChangeWheel=function(m_WheelNum){
             ArrayModel[i].enabled=false; 
         }
     }
+};
+
+//开门信号，拿到对应的模型
+ControllAll.prototype.OpenDoor=function(){
+    console.log("open door");
 };
 
 //SkyBox替换

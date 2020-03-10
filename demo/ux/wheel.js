@@ -1,4 +1,4 @@
-var Wheel = pc.createScript('wheel');
+var Door = pc.createScript('wheel');
 
 /*
 Wheel.attributes.add('hoverAsset', {
@@ -12,11 +12,11 @@ Wheel.attributes.add('activeAsset', {
 });*/
 
 
-Wheel.attributes.add('SelectNum',{type:'number',default:0});
+Door.attributes.add('SelectNum',{type:'number',default:0});
 
 var m_Num=0;
 // initialize code called once per entity
-Wheel.prototype.initialize = function() {
+Door.prototype.initialize = function() {
     if(IsPC()){
             //鼠标事件
         if(this.app.mouse){
@@ -34,12 +34,12 @@ Wheel.prototype.initialize = function() {
 };
 
 // update code called every frame
-Wheel.prototype.update = function(dt) {
+Door.prototype.update = function(dt) {
     
 };
 
 //mouse
-Wheel.prototype.onPress=function(event){
+Door.prototype.onPress=function(event){
     this.SelectNum++;
     //event.element.textureAsset = this.activeAsset;
     if(this.SelectNum>0){
@@ -48,13 +48,13 @@ Wheel.prototype.onPress=function(event){
     }
 };
 
-Wheel.prototype.onRelease=function(event){
+Door.prototype.onRelease=function(event){
     //event.element.textureAsset = this.hoverAsset;
 };
 
 
 //touch
-Wheel.prototype.onTouchStar=function(event){
+Door.prototype.onTouchStar=function(event){
     
     if(event.touches.length===1){
             //event.element.textureAsset = this.activeAsset;
@@ -63,7 +63,7 @@ Wheel.prototype.onTouchStar=function(event){
     }
 };
 
-Wheel.prototype.onTouchEnd=function(event){
+Door.prototype.onTouchEnd=function(event){
     if(event.touches.length===0){
         //event.element.textureAsset = this.hoverAsset;
     }
